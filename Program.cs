@@ -1,0 +1,19 @@
+﻿using System;
+
+namespace conosole1 // Note: actual namespace depends on the project name.
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            float purchasePrice , totalPrice , rate;
+            Console.Write("Alis fiyati giriniz: ");
+            purchasePrice = float.Parse(Console.ReadLine());
+            Console.Write("Kar orani giriniz (%): ");
+            rate = float.Parse(Console.ReadLine()); 
+            totalPrice = purchasePrice +(purchasePrice* rate / 100);
+            Console.WriteLine($"Satis Fiyatiniz : {totalPrice}TL");
+
+        }
+    }
+}

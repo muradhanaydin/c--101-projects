@@ -35,6 +35,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             double number = (ratedNumber*100)/rate; 
             Console.WriteLine($"Sayi: {number:F2}");
             */
+            /*Odev 4
             int toplam = 0 , sayi = toplam;
             bool stat = true;
             try{
@@ -56,6 +57,15 @@ namespace conosole1 // Note: actual namespace depends on the project name.
                 Console.WriteLine(ex.Message.ToString());
             }
             Console.WriteLine($"Girilen Sayilarin Toplami: {toplam}");
+            */
+            
+            int a = Int16.Parse(Console.ReadLine());
+            if(a%2 == 0){
+                Console.Write(true);
+            }else{
+                Console.Write(false);
+            }
+            
         }
           
     }

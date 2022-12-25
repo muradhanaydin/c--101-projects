@@ -97,12 +97,30 @@ namespace conosole1 // Note: actual namespace depends on the project name.
                     break;
             }
             */
-            
+            /*Odev 7 [Donguler]
             int n = Int16.Parse(Console.ReadLine());
             for(int i=1; i<11; i++){
                 Console.WriteLine($"{n} x {i} = {n*i}");
             }
+            */
 
+            int total = 0,i;
+            while(true){
+                i = Int16.Parse(Console.ReadLine());
+                if(i == -1){
+                    break;
+                }else{
+                    if(i%2==0){
+                        total += i;
+                    }else{
+                        continue;
+                    }
+                }
+            }
+            Console.WriteLine($"Girilen Cift Sayilarin Toplami: {total}");
+
+
+            
 
         }
           

@@ -58,14 +58,47 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             }
             Console.WriteLine($"Girilen Sayilarin Toplami: {toplam}");
             */
-            
+             /* Odev 5
             int a = Int16.Parse(Console.ReadLine());
             if(a%2 == 0){
                 Console.Write(true);
             }else{
                 Console.Write(false);
             }
-            
+            */
+
+            int s1 , s2;
+            char op;
+            Console.Write("1. Sayiyi giriniz: ");
+            s1= Int16.Parse(Console.ReadLine());
+            Console.Write("2. Sayiyi giriniz: ");
+            s2= Int16.Parse(Console.ReadLine());
+            Console.Write("Islem tipini giriniz: ");
+            op= Char.Parse(Console.ReadLine());
+
+            switch(op){
+                case '+':
+                    Console.WriteLine("Sonuc: " + (s1+s2));
+                    break;
+                case '-':
+                    Console.WriteLine("Sonuc: " + (s1-s2));
+                    break;
+                case '*':
+                    Console.WriteLine("Sonuc: " + (s1*s2));
+                    break;
+                case '/':
+                    Console.WriteLine("Sonuc: " + (s1/s2));
+                    break;
+                case '^':
+                    Console.WriteLine("Sonuc: " + Math.Pow(s1,s2));
+                    break;
+                default:
+                    Console.WriteLine("GECERSIZ ISTEM TIPI GIRDINIZ! [+,-,*,/,^]");
+                    break;
+            }
+
+
+
         }
           
     }

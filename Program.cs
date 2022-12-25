@@ -6,7 +6,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            /* ODEV 1
+            /* ODEV 1 [Degiskenler]
                 float purchasePrice , totalPrice , rate;
                 Console.Write("Alis fiyati giriniz: ");
                 purchasePrice = float.Parse(Console.ReadLine());
@@ -15,7 +15,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
                 totalPrice = purchasePrice +(purchasePrice* rate / 100);
                 Console.WriteLine($"Satis Fiyatiniz : {totalPrice}TL");
             */
-            /* ODEV 2
+            /* ODEV 2 [Operatorler]
             Console.Write("Kullanici adi: ");
             string kadi = Console.ReadLine();
             Console.Write("Sifre: ");
@@ -26,7 +26,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
                 Console.WriteLine("Sifre yada Kullanici Adi Hatali!");
             }
             */
-            /* Odev 3
+            /* Odev 3 [Tip Donusumleri]
             Console.Write("Yuzde Giriniz: ");
             float rate = float.Parse(Console.ReadLine());
             Console.Write("Oranlanmis Sayiyi Giriniz: ");
@@ -35,7 +35,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             double number = (ratedNumber*100)/rate; 
             Console.WriteLine($"Sayi: {number:F2}");
             */
-            /*Odev 4
+            /*Odev 4 [Hata Yonetimi]
             int toplam = 0 , sayi = toplam;
             bool stat = true;
             try{
@@ -58,7 +58,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             }
             Console.WriteLine($"Girilen Sayilarin Toplami: {toplam}");
             */
-             /* Odev 5
+             /* Odev 5 [Karar Yapilari]
             int a = Int16.Parse(Console.ReadLine());
             if(a%2 == 0){
                 Console.Write(true);
@@ -66,7 +66,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
                 Console.Write(false);
             }
             */
-
+            /* Odev 6 [Kara Yapilari]
             int s1 , s2;
             char op;
             Console.Write("1. Sayiyi giriniz: ");
@@ -96,7 +96,12 @@ namespace conosole1 // Note: actual namespace depends on the project name.
                     Console.WriteLine("GECERSIZ ISTEM TIPI GIRDINIZ! [+,-,*,/,^]");
                     break;
             }
-
+            */
+            
+            int n = Int16.Parse(Console.ReadLine());
+            for(int i=1; i<11; i++){
+                Console.WriteLine($"{n} x {i} = {n*i}");
+            }
 
 
         }

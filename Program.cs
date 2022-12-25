@@ -103,7 +103,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
                 Console.WriteLine($"{n} x {i} = {n*i}");
             }
             */
-
+            /*Odev 8 [Donguler]
             int total = 0,i;
             while(true){
                 i = Int16.Parse(Console.ReadLine());
@@ -118,11 +118,15 @@ namespace conosole1 // Note: actual namespace depends on the project name.
                 }
             }
             Console.WriteLine($"Girilen Cift Sayilarin Toplami: {total}");
+            */
 
+            int[] sayilar = {1,5,4,8,7};
+            int toplam  =0;
+            foreach(int sayi in sayilar){
+                toplam +=sayi;
+            }
+            Console.WriteLine(toplam);
 
-            
-
-        }
-          
+        }          
     }
 }

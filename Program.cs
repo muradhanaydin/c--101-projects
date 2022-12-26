@@ -137,18 +137,53 @@ namespace conosole1 // Note: actual namespace depends on the project name.
 
             Console.WriteLine($"Son eleman ile ilk eleman farki: {arr[arr.Length-1] - arr[0]}");
             */
-
+            /* Odev 11[Metodlar]
             Program prg = new Program();
             Console.Write("Hesaplanacak Sayi: ");
             int sayi = Int16.Parse(Console.ReadLine());
             prg.ekranaYaz(prg.faktoriyel(sayi).ToString());
-        }    
+            */
+
+            string sayiText = "999";
+            bool sonuc = int.TryParse(sayiText , out int sayi);
+            if(sonuc){
+                Console.WriteLine($"Islem Basarili!\n{sayi}");
+            }else{
+                Console.WriteLine("Islem Basarisiz!");
+            }
+
+            Islemler islemler = new Islemler();
+            islemler.Topla(4,5,out int toplam);
+            Console.WriteLine($"Toplam: {toplam}");
+
+            islemler.Topla(4,5,6,out int toplamOl);
+            Console.WriteLine($"ToplamOl: {toplamOl}");
+
+            int ikincisayi = 123;
+            islemler.ekranaYaz(ikincisayi.ToString());
+
+
+
+
+        }   
+        /* 
         public int faktoriyel(int f){
             int fak = 1;
             for(int i=1;i<=f;i++){
                 fak *= i;
             }
             return fak;
+        }
+        public void ekranaYaz(string text){
+            Console.WriteLine(text);
+        }*/
+    }
+    class Islemler{
+        public void Topla(int a , int b , out int toplam){
+            toplam = a+b;
+        }
+        public void Topla(int a , int b ,int c, out int toplam){
+            toplam = a+b+c;
         }
         public void ekranaYaz(string text){
             Console.WriteLine(text);

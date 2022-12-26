@@ -143,7 +143,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             int sayi = Int16.Parse(Console.ReadLine());
             prg.ekranaYaz(prg.faktoriyel(sayi).ToString());
             */
-
+            /*Odev 12 [Metodlar]
             string sayiText = "999";
             bool sonuc = int.TryParse(sayiText , out int sayi);
             if(sonuc){
@@ -161,9 +161,30 @@ namespace conosole1 // Note: actual namespace depends on the project name.
 
             int ikincisayi = 123;
             islemler.ekranaYaz(ikincisayi.ToString());
+            */
+
+            //Recursive Function
+            int result = 1;
+            for(int i=1; i<5; i++){
+                result *= 3;
+            }
+            Console.WriteLine(result);
+            Islemler islemler = new();
+            islemler.ekranaYaz(islemler.Expo(3,5).ToString());
+
+            //Extension Metodlar
+            string ifade = "Ne Mutlu Turkum Diyene!";
+            bool sonuc = ifade.CheckSpaces();
+            islemler.ekranaYaz(sonuc.ToString());
+
+            islemler.ekranaYaz(ifade.MakeLowerCase());
+            islemler.ekranaYaz(ifade.MakeUpperCase());
 
 
+            islemler.ekranaYaz(ifade.ReplaceWhiteSpaceToMoonStar());
 
+            int s = 5;
+            islemler.ekranaYaz(s.IsEvenNumber().ToString());
 
         }   
         /* 
@@ -179,6 +200,13 @@ namespace conosole1 // Note: actual namespace depends on the project name.
         }*/
     }
     class Islemler{
+        public int Expo(int a, int f){
+            if(f == 1){
+                return f;
+            }else{
+                return a*Expo(a , f-1);
+            }
+        }
         public void Topla(int a , int b , out int toplam){
             toplam = a+b;
         }
@@ -187,6 +215,23 @@ namespace conosole1 // Note: actual namespace depends on the project name.
         }
         public void ekranaYaz(string text){
             Console.WriteLine(text);
+        }
+    }
+    public static class Extension{
+        public static bool CheckSpaces(this string param){
+            return param.Contains(" ");
+        }
+        public static string ReplaceWhiteSpaceToMoonStar(this string param){
+            return string.Join(" c* " , param.Split(" "));
+        }
+        public static string MakeUpperCase(this string param){
+            return param.ToUpper();
+        }
+        public static string MakeLowerCase(this string param){
+            return param.ToLower();
+        }
+        public static bool IsEvenNumber(this int param){
+            return param % 2 == 0;
         }
     }
 }

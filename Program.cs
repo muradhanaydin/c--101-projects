@@ -127,7 +127,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             }
             Console.WriteLine(toplam);
             */
-
+            /*Odev 10[Array]
             int[] arr = new int[5];
             for(int i=0; i<arr.Length; i++){
                 arr[i] = Int16.Parse(Console.ReadLine());
@@ -136,7 +136,22 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             Array.Sort(arr);
 
             Console.WriteLine($"Son eleman ile ilk eleman farki: {arr[arr.Length-1] - arr[0]}");
+            */
 
-        }          
+            Program prg = new Program();
+            Console.Write("Hesaplanacak Sayi: ");
+            int sayi = Int16.Parse(Console.ReadLine());
+            prg.ekranaYaz(prg.faktoriyel(sayi).ToString());
+        }    
+        public int faktoriyel(int f){
+            int fak = 1;
+            for(int i=1;i<=f;i++){
+                fak *= i;
+            }
+            return fak;
+        }
+        public void ekranaYaz(string text){
+            Console.WriteLine(text);
+        }
     }
 }

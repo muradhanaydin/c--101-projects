@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;   
 
 namespace conosole1 // Note: actual namespace depends on the project name.
 {
@@ -281,6 +282,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             */
 
 
+            /*
             //ArrayList Kullanimi
 
             ArrayList liste = new ArrayList();
@@ -304,11 +306,49 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             foreach(var item in liste){
                 Console.WriteLine($"{item}");
             }
-
             //Sort metodunu kullanirken sadece int tipindeki verileri siralama yapar. Aksi takdirde runtime hatasi verir fakat kod blogunda hata uyarisi vermez.
-            
-            
+            */
 
+
+            //Dictionary Kullanili => Key , value mantigi ile calisir ayni ingilizce turkce sozluk gibi. Olustururken hem key in hemde value nun tipini ayri ayri belirtiriz.
+            //Dictionary<key-type,value-type> <name> = new Dictionary<key-type,value-type>(); seklinde olusturulur.
+
+            Dictionary<int,string> kullanicilar = new Dictionary<int,string>();
+            kullanicilar.Add(1021 , "Mert");
+            kullanicilar.Add(1022 , "Ayse");
+            kullanicilar.Add(1023 , "Fatma");
+            kullanicilar.Add(1024 , "Hayriye");
+
+            //Dizinin elemanlarina erisim
+            Console.WriteLine("------ Elemanlara Erisim -----");
+            Console.WriteLine(kullanicilar[1023]);
+            foreach(var item in kullanicilar){
+                Console.WriteLine(item);
+            }
+
+            //Count kullanimi
+            Console.WriteLine($"------ Count -------\n{kullanicilar.Count}");
+
+            //Contains kullanimi
+            Console.WriteLine($"------ Contains -------\n{kullanicilar.ContainsKey(1021)}\n{kullanicilar.ContainsValue("Mert")}");
+
+            //Remove kullanimi
+            Console.WriteLine($"------ Remove -------\n{kullanicilar.Remove(1023)}");
+            foreach (var item in kullanicilar){
+                Console.WriteLine(item);
+            }
+            
+            //Keys kullanimi
+            Console.WriteLine($"------ Keys -------");
+            foreach(var keys in kullanicilar.Keys){
+                Console.WriteLine(keys);
+            }
+
+            //Value kullanimi
+            Console.WriteLine($"------ Keys -------");
+            foreach(var value in kullanicilar.Values){
+                Console.WriteLine(value);
+            }
 
 
         }   

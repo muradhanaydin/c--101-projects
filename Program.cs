@@ -163,6 +163,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             islemler.ekranaYaz(ikincisayi.ToString());
             */
 
+            /*
             //Recursive Function
             int result = 1;
             for(int i=1; i<5; i++){
@@ -185,6 +186,96 @@ namespace conosole1 // Note: actual namespace depends on the project name.
 
             int s = 5;
             islemler.ekranaYaz(s.IsEvenNumber().ToString());
+            */
+
+            //GENERIC COLLECTION ve LIST
+            //List<type> [objectName] = new List<type>();
+
+            List<int> numbers = new List<int>();
+            numbers.Add(10);
+            numbers.Add(20);
+            numbers.Add(30);
+            numbers.Add(40);
+            numbers.Add(50);
+
+            List<string> words = new List<string>();
+            words.Add("Hello");
+            words.Add("World!");
+            words.Add("This");
+            words.Add("Is");
+            words.Add("My");
+            words.Add("First");
+            words.Add("Code");
+
+            //List kolleksiyon tipindeki bir arrayin eleman sayisi(dizi sayisini) getirme
+            Console.WriteLine($"numbers[{numbers.Count}]");
+            Console.WriteLine($"numbers[{words.Count}]");
+
+            //Foreach ile kolleksiyon verilerini ekrana yazma yada uzerinde islem yapma 
+            foreach(var num in numbers){
+                Console.WriteLine($"{num} ");
+            }
+            foreach(var word in words){
+                Console.WriteLine($"{word} ");
+            }
+
+            //Diger bir sekilde foreach metodunu kullanma 
+            numbers.ForEach(num => {
+                Console.WriteLine($"{num} ");
+            });
+            words.ForEach(word => {
+                Console.WriteLine($"{word} ");
+            });
+
+            //Listeden Eleman Cikarma Yada Silme
+            numbers.Remove(10); //direk silmek istedigimiz degerler verilir
+            words.RemoveAt(4); //verdigimiz index numarasindaki elemani siler
+            numbers.ForEach(num => {
+                Console.WriteLine($"{num} ");
+            });
+            words.ForEach(word => {
+                Console.WriteLine($"{word} ");
+            });
+
+            //List icerisinde eleman arama 
+            if(words.Contains("Hello")){
+                Console.WriteLine("----- ELEMAN BULUNDU -----");
+            }
+
+            //List icerisinde bulanan veririn index numarasini bulma
+            Console.WriteLine(words.BinarySearch("Code"));
+
+            //Bir diziyi []  List tipine cevirme
+            string[] turkishWords = {"Merhaba", "Dunya!" , "Bu" , "Benim" , "Ilk" , "Kodum"};
+            List<string> turkishWords2 = new List<string>(turkishWords);
+            turkishWords2.ForEach(word => {
+                Console.WriteLine($"{word}");
+            });
+            
+            //List icindeki elemanlari temizleme 
+            numbers.Clear();
+
+            //List icerisinde class nesnesi tutmak
+            User user1 = new User();
+            User user2 = new User();
+            List<User> users = new List<User>();
+
+            user1.Name = "Ahmet";
+            user1.Surname = "Uludiyar";
+            user1.Age = 34;
+
+            users.Add(user1);
+
+            users.Add(new User(){ //Diger sekilde sinif uyesini List kolleksiyonuna ekleme
+                Name = "Mahmut",
+                Surname = "Boz",
+                Age = 23
+            });
+
+            users.ForEach(user=>{
+                Console.WriteLine($"User -> Name: {user.Name}   Surname: {user.Surname}   Age: {user.Age}");
+            });
+
 
         }   
         /* 
@@ -198,6 +289,15 @@ namespace conosole1 // Note: actual namespace depends on the project name.
         public void ekranaYaz(string text){
             Console.WriteLine(text);
         }*/
+    }
+    class User{
+        private string name;
+        private string surname;
+        private int age;
+
+        public string Name { get=>name; set=>name=value; }
+        public string Surname { get=>surname; set=>surname=value; }
+        public int Age { get=>age; set=>age=value;}
     }
     class Islemler{
         public int Expo(int a, int f){

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace conosole1 // Note: actual namespace depends on the project name.
 {
@@ -188,6 +189,8 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             islemler.ekranaYaz(s.IsEvenNumber().ToString());
             */
 
+
+            /*
             //GENERIC COLLECTION ve LIST
             //List<type> [objectName] = new List<type>();
 
@@ -275,6 +278,37 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             users.ForEach(user=>{
                 Console.WriteLine($"User -> Name: {user.Name}   Surname: {user.Surname}   Age: {user.Age}");
             });
+            */
+
+
+            //ArrayList Kullanimi
+
+            ArrayList liste = new ArrayList();
+            liste.Add("Bu bir metindir.");
+            liste.Add(10);
+            liste.Add(true);
+            liste.Add('a');
+
+            //Icersindeki verilere erisim => <arrayIsmi>[index]
+            Console.WriteLine(liste[3]);
+
+            //Liste elemanlarini yazdiriyoruz
+            foreach(var item in liste){
+                Console.WriteLine($"{item}");
+            }
+
+            //AddRange ile liste icine birden fazla veri ekleme
+            List<int> sayilar = new List<int>(){10,20,30,40,50,60,70};
+            liste.AddRange(sayilar);
+            Console.WriteLine("------ AddRange Sonrasi ------");
+            foreach(var item in liste){
+                Console.WriteLine($"{item}");
+            }
+
+            //Sort metodunu kullanirken sadece int tipindeki verileri siralama yapar. Aksi takdirde runtime hatasi verir fakat kod blogunda hata uyarisi vermez.
+            
+            
+
 
 
         }   

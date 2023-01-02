@@ -369,14 +369,23 @@ namespace conosole1 // Note: actual namespace depends on the project name.
 
             //CLASS ODEV 2 (Encapsulation)
 
-            Student std1 = new Student("Ahmet" , "Birinci" , 4 , 321245);
-            Student std2 = new Student("Filiz" , "Kapici" , 7 , 456157);
-            std1.PrintStudentData();
-            std2.PrintStudentData();
-            std1.ClassDown();
-            std2.ClassUp();
-            std1.PrintStudentData();
-            std2.PrintStudentData();            
+            // Student std1 = new Student("Ahmet" , "Birinci" , 4 , 321245);
+            // Student std2 = new Student("Filiz" , "Kapici" , 7 , 456157);
+            // std1.PrintStudentData();
+            // std2.PrintStudentData();
+            // std1.ClassDown();
+            // std2.ClassUp();
+            // std1.PrintStudentData();
+            // std2.PrintStudentData();     
+
+            //CLASS ODEV 3 (STATIC)    
+
+            Console.WriteLine($"Isci Sayisi : {EmployeeStatic.Count}");
+            EmployeeStatic emp1 = new EmployeeStatic("Ayse" , "Boyaci" , 234 , "Software Tester");
+            EmployeeStatic emp2 = new EmployeeStatic("Faruk" , "Yerebasan");
+            EmployeeStatic emp3 = new EmployeeStatic();
+            Console.WriteLine($"Isci Sayisi : {EmployeeStatic.Count}");
+
 
         }   
         /* 
@@ -391,6 +400,37 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             Console.WriteLine(text);
         }*/
     }
+    class EmployeeStatic{
+        public static int Count;
+        public string Name;
+        public string Surname;
+        public string Department;
+        public int No;
+
+        public EmployeeStatic(string name , string surname , int no , string department){
+            this.Name = name;
+            this.Surname = surname;
+            this.No = no;
+            this.Department = department;
+            Count += 1;
+        }
+
+        public EmployeeStatic(string name , string surname){
+            this.Name = name;
+            this.Surname = surname;
+            Count +=1;
+        }
+
+        public EmployeeStatic(){
+            Count +=1;
+        }
+
+        public void PringtEmployeeData(){
+            Console.WriteLine($"Name: {Name}\nSurname: {Surname}\nDepartmant: {Department}\nNo: {No}\n");
+        }
+    }
+
+
     class Student{
         private string name;
         private string surname;

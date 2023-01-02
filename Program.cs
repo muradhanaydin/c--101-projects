@@ -359,6 +359,12 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             calisan1.No = 123;
             calisan1.PringtEmployeeData();
 
+            Employee calisan2 = new Employee("Fatma" , "Caliskan" , 12 , "Mudur");
+            calisan2.PringtEmployeeData();
+
+            Employee calisan3 = new Employee("Fatih" , "Kalan");
+            calisan3.PringtEmployeeData();
+
 
         }   
         /* 
@@ -379,8 +385,22 @@ namespace conosole1 // Note: actual namespace depends on the project name.
         public string Department;
         public int No;
 
+        public Employee(string name , string surname , int no , string department){
+            this.Name = name;
+            this.Surname = surname;
+            this.No = no;
+            this.Department = department;
+        }
+
+        public Employee(string name , string surname){
+            this.Name = name;
+            this.Surname = surname;
+        }
+
+        public Employee(){}
+
         public void PringtEmployeeData(){
-            Console.WriteLine($"Name: {Name}\nSurname: {Surname}\nDepartmant: {Department}\nNo: {No}");
+            Console.WriteLine($"Name: {Name}\nSurname: {Surname}\nDepartmant: {Department}\nNo: {No}\n");
         }
     }
     class User{

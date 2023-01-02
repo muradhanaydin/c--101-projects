@@ -309,6 +309,7 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             //Sort metodunu kullanirken sadece int tipindeki verileri siralama yapar. Aksi takdirde runtime hatasi verir fakat kod blogunda hata uyarisi vermez.
             */
 
+            /*
 
             //Dictionary Kullanili => Key , value mantigi ile calisir ayni ingilizce turkce sozluk gibi. Olustururken hem key in hemde value nun tipini ayri ayri belirtiriz.
             //Dictionary<key-type,value-type> <name> = new Dictionary<key-type,value-type>(); seklinde olusturulur.
@@ -349,6 +350,14 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             foreach(var value in kullanicilar.Values){
                 Console.WriteLine(value);
             }
+            */
+
+            Employee calisan1 = new Employee();
+            calisan1.Name = "Ahmet";
+            calisan1.Surname = "Bar";
+            calisan1.Department = "Insan Kaynaklari";
+            calisan1.No = 123;
+            calisan1.PringtEmployeeData();
 
 
         }   
@@ -363,6 +372,16 @@ namespace conosole1 // Note: actual namespace depends on the project name.
         public void ekranaYaz(string text){
             Console.WriteLine(text);
         }*/
+    }
+    class Employee{
+        public string Name;
+        public string Surname;
+        public string Department;
+        public int No;
+
+        public void PringtEmployeeData(){
+            Console.WriteLine($"Name: {Name}\nSurname: {Surname}\nDepartmant: {Department}\nNo: {No}");
+        }
     }
     class User{
         private string name;

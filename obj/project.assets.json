@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\murad\\Documents\\PatikaDev\\c--101-projects\\console1.csproj",
+      "projectUniqueName": "C:\\Users\\murad\\OneDrive\\Belgeler\\PatikaDev\\c--101-projects\\console1.csproj",
       "projectName": "console1",
-      "projectPath": "C:\\Users\\murad\\Documents\\PatikaDev\\c--101-projects\\console1.csproj",
+      "projectPath": "C:\\Users\\murad\\OneDrive\\Belgeler\\PatikaDev\\c--101-projects\\console1.csproj",
       "packagesPath": "C:\\Users\\murad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\murad\\Documents\\PatikaDev\\c--101-projects\\obj\\",
+      "outputPath": "C:\\Users\\murad\\OneDrive\\Belgeler\\PatikaDev\\c--101-projects\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\murad\\AppData\\Roaming\\NuGet\\NuGet.Config"

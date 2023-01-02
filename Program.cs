@@ -380,12 +380,20 @@ namespace conosole1 // Note: actual namespace depends on the project name.
 
             //CLASS ODEV 3 (STATIC)    
 
-            Console.WriteLine($"Isci Sayisi : {EmployeeStatic.Count}");
-            EmployeeStatic emp1 = new EmployeeStatic("Ayse" , "Boyaci" , 234 , "Software Tester");
-            EmployeeStatic emp2 = new EmployeeStatic("Faruk" , "Yerebasan");
-            EmployeeStatic emp3 = new EmployeeStatic();
-            Console.WriteLine($"Isci Sayisi : {EmployeeStatic.Count}");
+            // Console.WriteLine($"Isci Sayisi : {EmployeeStatic.Count}");
+            // EmployeeStatic emp1 = new EmployeeStatic("Ayse" , "Boyaci" , 234 , "Software Tester");
+            // EmployeeStatic emp2 = new EmployeeStatic("Faruk" , "Yerebasan");
+            // EmployeeStatic emp3 = new EmployeeStatic();
+            // Console.WriteLine($"Isci Sayisi : {EmployeeStatic.Count}");
 
+            //ClASS ODEV 4 (STRUCT)
+
+            Triangular ucgen1 = new Triangular(4,5);
+            Console.WriteLine($"1.Ucgen Alani : {ucgen1.CalculateAreaOfTriangular():F2}");
+            Triangular ucgen2;
+            ucgen2.baseWeight = 5;
+            ucgen2.height = 15;
+            Console.WriteLine($"1.Ucgen Alani : {ucgen2.CalculateAreaOfTriangular():F2}");
 
         }   
         /* 
@@ -399,6 +407,21 @@ namespace conosole1 // Note: actual namespace depends on the project name.
         public void ekranaYaz(string text){
             Console.WriteLine(text);
         }*/
+    }
+
+    struct Triangular{
+        public float baseWeight;
+        public float height;
+
+        public Triangular(float bw , float h){ 
+            //Kurucu metodu. Fakat yeni struct olustururken new <struct-name>(); seklinde kullanilmalidir. Atama yapilmadigindan dolayi diger metodlar hata verir.
+            this.baseWeight = bw;
+            this.height = h;
+        }
+
+        public float CalculateAreaOfTriangular(){
+            return this.baseWeight * height /2;
+        }
     }
     class EmployeeStatic{
         public static int Count;

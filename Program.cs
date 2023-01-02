@@ -352,19 +352,31 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             }
             */
 
-            Employee calisan1 = new Employee();
-            calisan1.Name = "Ahmet";
-            calisan1.Surname = "Bar";
-            calisan1.Department = "Insan Kaynaklari";
-            calisan1.No = 123;
-            calisan1.PringtEmployeeData();
+            //CLASS ODEV 1 (Constructor)
 
-            Employee calisan2 = new Employee("Fatma" , "Caliskan" , 12 , "Mudur");
-            calisan2.PringtEmployeeData();
+            // Employee calisan1 = new Employee();
+            // calisan1.Name = "Ahmet";
+            // calisan1.Surname = "Bar";
+            // calisan1.Department = "Insan Kaynaklari";
+            // calisan1.No = 123;
+            // calisan1.PringtEmployeeData();
 
-            Employee calisan3 = new Employee("Fatih" , "Kalan");
-            calisan3.PringtEmployeeData();
+            // Employee calisan2 = new Employee("Fatma" , "Caliskan" , 12 , "Mudur");
+            // calisan2.PringtEmployeeData();
 
+            // Employee calisan3 = new Employee("Fatih" , "Kalan");
+            // calisan3.PringtEmployeeData();
+
+            //CLASS ODEV 2 (Encapsulation)
+
+            Student std1 = new Student("Ahmet" , "Birinci" , 4 , 321245);
+            Student std2 = new Student("Filiz" , "Kapici" , 7 , 456157);
+            std1.PrintStudentData();
+            std2.PrintStudentData();
+            std1.ClassDown();
+            std2.ClassUp();
+            std1.PrintStudentData();
+            std2.PrintStudentData();            
 
         }   
         /* 
@@ -378,6 +390,33 @@ namespace conosole1 // Note: actual namespace depends on the project name.
         public void ekranaYaz(string text){
             Console.WriteLine(text);
         }*/
+    }
+    class Student{
+        private string name;
+        private string surname;
+        private int classNumber;
+        private int number;
+
+        public string Name {get=>name; set=>name=value;}
+        public string Surname {get=>surname; set=>surname=value;}
+        public int Number {get=>number; set=>number=value;}
+        public int ClassNumber {get=>classNumber; set=>classNumber = value<1?1:value;}
+        public Student(string name , string surname , int classnumber , int number){
+            Name = name;
+            Surname = surname;
+            Number = number;
+            ClassNumber = classnumber;
+        }
+        public Student(){}
+        public void ClassDown(){
+            ClassNumber -= 1;
+        }
+        public void ClassUp(){
+            ClassNumber += 1;
+        }
+        public void PrintStudentData(){
+            Console.WriteLine($"---STUDENT INFO---\nName          : {Name}\nSurname       : {Surname}\nNumber        : {Number}\nCurrent Class : {ClassNumber}\n");
+        }
     }
     class Employee{
         public string Name;

@@ -388,12 +388,40 @@ namespace conosole1 // Note: actual namespace depends on the project name.
 
             //ClASS ODEV 4 (STRUCT)
 
-            Triangular ucgen1 = new Triangular(4,5);
-            Console.WriteLine($"1.Ucgen Alani : {ucgen1.CalculateAreaOfTriangular():F2}");
-            Triangular ucgen2;
-            ucgen2.baseWeight = 5;
-            ucgen2.height = 15;
-            Console.WriteLine($"1.Ucgen Alani : {ucgen2.CalculateAreaOfTriangular():F2}");
+            // Triangular ucgen1 = new Triangular(4,5);
+            // Console.WriteLine($"1.Ucgen Alani : {ucgen1.CalculateAreaOfTriangular():F2}");
+            // Triangular ucgen2;
+            // ucgen2.baseWeight = 5;
+            // ucgen2.height = 15;
+            // Console.WriteLine($"1.Ucgen Alani : {ucgen2.CalculateAreaOfTriangular():F2}");
+
+            int day = int.Parse(Console.ReadLine());
+            switch(day){
+                case (int)Days.Monday:
+                    Console.WriteLine("MONDAY");
+                    break;
+                case (int)Days.Tuesday:
+                    Console.WriteLine("TUESDAY");
+                    break;
+                case (int)Days.Wednesday:
+                    Console.WriteLine("WEDNESDAY");
+                    break;
+                case (int)Days.Thursday:
+                    Console.WriteLine("THURSDAY");
+                    break;
+                case (int)Days.Friday:
+                    Console.WriteLine("FRIDAY");
+                    break;
+                case (int)Days.Saturday:
+                    Console.WriteLine("SATURDAY");
+                    break;
+                case (int)Days.Sunday:
+                    Console.WriteLine("SUNDAY");
+                    break;
+                default:
+                    Console.WriteLine("You have entered invalid data.");
+                    break;
+            }
 
         }   
         /* 
@@ -408,7 +436,15 @@ namespace conosole1 // Note: actual namespace depends on the project name.
             Console.WriteLine(text);
         }*/
     }
-
+    enum Days{ //Bir sabit olusturmak icin kullanilir. kullanirken ise Days.Monday gibi kullanima sahiptir. Eger indexe erismek istersek => (int)Days.Monday**  ==
+        Monday=1,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday, 
+        Saturday,
+        Sunday
+    }
     struct Triangular{
         public float baseWeight;
         public float height;

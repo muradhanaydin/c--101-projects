@@ -121,12 +121,13 @@ namespace c__101_proj{
                 }
             }
             public void PrintCurrentStatus(){
-                Console.WriteLine($"\n-- OY DURUMLARI --    toplam kullanilan oy:{totalVotes}\n\n");
-                foreach(var vote in votes){
+                Console.WriteLine($"\n-- OY DURUMLARI --\n\n");
+                foreach(var vote in votes.OrderByDescending(v => v.Value)){
                         float c = vote.Value;
                         float ratio = (c/this.totalVotes) * 100; 
-                        Console.WriteLine($"%{ratio} ({vote.Value})  {(Categories)vote.Key}");
+                        Console.WriteLine($"%{ratio:F0}\t({vote.Value})\t{(Categories)vote.Key}");
                 }
+                Console.WriteLine($"\nTotal Votes : {totalVotes}");
             }
             public void Vote(int categoryID){
                 foreach(var vote in votes){

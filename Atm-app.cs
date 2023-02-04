@@ -105,10 +105,10 @@ namespace c__101_proj{
                 withdraw = Double.Parse(Console.ReadLine());
                 if(u.Balance >= withdraw){
                     u.Balance -= withdraw;
-                    Console.WriteLine($"{Withdraw}TL hesabinizdan cekildi. Guncel Bakiyeniz: {u.Balance}");
+                    Console.WriteLine($"{withdraw}TL hesabinizdan cekildi. Guncel Bakiyeniz: {u.Balance}");
                     logger.Withdraw(u,withdraw);
                 }else{
-                    Console.WriteLine($"Hesabinizda {Withdraw}TL bulunmamaktadir. Guncel Bakiyeniz {u.Balance}Tl'dir.");
+                    Console.WriteLine($"Hesabinizda {withdraw}TL bulunmamaktadir. Guncel Bakiyeniz {u.Balance}Tl'dir.");
                 }
                 MainScreen();
             }

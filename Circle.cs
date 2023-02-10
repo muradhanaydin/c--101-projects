@@ -15,7 +15,7 @@ namespace c__101_proj
                 Console.Write("Yaricap girini: ");
                 if (!double.TryParse(Console.ReadLine(), out radius) || radius <= 0)
                 {
-                Console.WriteLine("radius have to be positive number");
+                Console.WriteLine("Yaricap 0 dan kucuk veya esit olamaz!");
                 }
             }
             while (radius <= 0);

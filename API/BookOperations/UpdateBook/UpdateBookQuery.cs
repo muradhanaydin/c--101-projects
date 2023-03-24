@@ -17,12 +17,22 @@ namespace api.BookOperations.UpdateBook
             if(book is null){
                 throw new InvalidOperationException($"{id}'ye sahip kitap bulunamadi!");
             }   
-            book.Category = book.Category != default?(int)Enum.Parse(typeof(CategoryEnum), modal.Category):book.Category;
-            book.PageCount = book.PageCount != default?modal.PageCount:book.PageCount;
-            book.Title = book.Title != default?modal.Title:book.Title;
-            book.PublishDate = book.PublishDate != default?(DateTime.Parse(modal.PublishedDate)):book.PublishDate;
-            book.Publisher = book.Publisher != default?modal.Publisher:book.Publisher;
-            _context.SaveChanges();
+            UpdateBookQueryValidator validator = new UpdateBookQueryValidator();
+            var result = validator.Validate(modal);
+            if(result.IsValid){
+                book.Category = book.Category != default?(int)Enum.Parse(typeof(CategoryEnum), modal.Category):book.Category;
+                book.PageCount = book.PageCount != default?modal.PageCount:book.PageCount;
+                book.Title = book.Title != default?modal.Title:book.Title;
+                book.PublishDate = book.PublishDate != default?(DateTime.Parse(modal.PublishedDate)):book.PublishDate;
+                book.Publisher = book.Publisher != default?modal.Publisher:book.Publisher;
+                _context.SaveChanges();
+            }else{
+                string errorMessage = "";
+                result.Errors.ForEach(error => {
+                    errorMessage += error.ErrorMessage+"\n";
+                });
+                throw new InvalidOperationException(errorMessage);
+            }
         }
     }
 }

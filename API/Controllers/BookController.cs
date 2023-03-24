@@ -4,6 +4,7 @@ using api.BookOperations;
 using api.BookOperations.CreateBook;
 using api.BookOperations.UpdateBook;
 using api.Modal;
+using AutoMapper;
 
 namespace api.Controllers;
 
@@ -12,21 +13,23 @@ namespace api.Controllers;
 public class BookController : ControllerBase
 {
     private readonly BookStoreDbContext _context;
-    public BookController(BookStoreDbContext context){
+    private readonly IMapper _mapper;
+    public BookController(BookStoreDbContext context , IMapper mapper){
         _context = context;
+        _mapper = mapper;
     }
     
     //GET
     [HttpGet]
     public IActionResult GetBooks(){
-        GetBooksQuery query = new GetBooksQuery(_context);
+        GetBooksQuery query = new GetBooksQuery(_context , _mapper);
         var result = query.Handle();
         return Ok(result);
     }
 
     [HttpGet("{id}")]
     public IActionResult GetById(string id){
-        GetBookByIdQuery query = new GetBookByIdQuery(_context);
+        GetBookByIdQuery query = new GetBookByIdQuery(_context , _mapper);
         var result = query.Handle(id);
         return Ok(result);
     }
@@ -35,7 +38,7 @@ public class BookController : ControllerBase
     [HttpPost]
     public IActionResult AddBook([FromBody] CreateBookViewModal book)
     {
-        CreateBookQuery query = new CreateBookQuery(_context);
+        CreateBookQuery query = new CreateBookQuery(_context , _mapper);
         try
         {
             query.Handle(book);

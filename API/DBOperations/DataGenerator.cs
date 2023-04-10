@@ -1,3 +1,4 @@
+using api.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.DBOperations
@@ -11,34 +12,80 @@ namespace api.DBOperations
                 if(context.Books.Any()){
                     return;
                 }
-                context.Books.AddRange(new Book{
-                    Title = "Lean Startup",
-                    Publisher = "Kim Van Yueka",
-                    Category = 3,
-                    PageCount = 243,
-                    PublishDate = new DateTime(2001,06,12)
-                },
-                new Book{
-                    Title = "C# Programlama Dili ve Yazilim Tasarimi",
-                    Publisher = "Papatya Yayincilik",
-                    Category = 1,
-                    PageCount = 421,
-                    PublishDate = new DateTime(2012,10,22)
-                },
-                new Book{
-                    Title = "Harry Potter Buyu Kitabi",
-                    Publisher = "Martı Yayınları",
-                    Category = 5,
-                    PageCount = 160,
-                    PublishDate = new DateTime(2022,5,4)
-                },
-                new Book{
-                    Title = "SQL Server 2022",
-                    Publisher = "Kodlab",
-                    Category = 1,
-                    PageCount = 232,
-                    PublishDate = new DateTime(2023,1,15)
-                });
+
+                context.Author.AddRange(
+                    new Author{
+                        Name = "MUSTAFA",
+                        Surname = "KARAHANLI",
+                        DateOfBirthDay = DateTime.Parse("12/12/2000")
+                    },
+                    new Author{
+                        Name = "FATMA",
+                        Surname = "OZGUR",
+                        DateOfBirthDay = DateTime.Parse("24/04/1974")
+                    },
+                    new Author{
+                    Name = "SERDAR",
+                    Surname = "KABA",
+                    DateOfBirthDay = DateTime.Parse("02/10/1985")
+                    },
+                    new Author{
+                        Name = "SELVI",
+                        Surname = "OZGUNES",
+                        DateOfBirthDay = DateTime.Parse("17/01/1991")
+                    }
+                );
+                context.Category.AddRange(
+                    new Category{
+                        Name = "Education"
+                    },
+                    new Category{
+                        Name = "Science Fiction"
+                    },
+                    new Category{
+                        Name = "Politics"
+                    },
+                    new Category{
+                        Name = "Philosophy"
+                    },
+                    new Category{
+                        Name = "Other"
+                    }
+                );
+                context.Books.AddRange(
+                    new Book{
+                        Title = "Ornek Kitap 1",
+                        Publisher = "ABC Yayincilik",
+                        CategoryId = 3,
+                        PageCount = 243,
+                        AuthorId = 1,
+                        PublishDate = new DateTime(2001,06,12)
+                    },
+                    new Book{
+                        Title = "Rastgele Kitap 2",
+                        Publisher = "YeniDunya",
+                        CategoryId = 1,
+                        PageCount = 421,
+                        AuthorId = 3,
+                        PublishDate = new DateTime(2012,10,22)
+                    },
+                    new Book{
+                        Title = ".Sallama Kitap 3",
+                        Publisher = "Martı",
+                        CategoryId = 5,
+                        PageCount = 160,
+                        AuthorId = 2,
+                        PublishDate = new DateTime(2022,5,4)
+                    },
+                    new Book{
+                        Title = "Hicbir Kitap 4",
+                        Publisher = "Derecik",
+                        CategoryId = 1,
+                        PageCount = 232,
+                        AuthorId = 1,
+                        PublishDate = new DateTime(2023,1,15)
+                    }
+                );
                 context.SaveChanges();
             }
             

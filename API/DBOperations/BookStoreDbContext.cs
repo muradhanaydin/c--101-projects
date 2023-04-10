@@ -1,3 +1,4 @@
+using api.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.DBOperations
@@ -8,5 +9,7 @@ namespace api.DBOperations
         {
         }
         public DbSet<Book> Books { get; set;}
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Author> Author { get; set; }
     }
 }

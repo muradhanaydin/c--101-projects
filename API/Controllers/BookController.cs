@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using api.DBOperations;
-using api.BookOperations;
-using api.BookOperations.CreateBook;
-using api.BookOperations.UpdateBook;
-using api.Modal;
 using AutoMapper;
+using api.Application.BookOperations.Queries.GetBook;
+using api.Application.BookOperations.Commands.CreateBook;
+using api.Application.BookOperations.Commands.UpdateBook;
+using api.Application.BookOperations.Commands.DeleteBook;
+using api.Application.BookOperations.Queries.GetBookById;
+using FluentValidation;
 
 namespace api.Controllers;
 
@@ -25,12 +27,15 @@ public class BookController : ControllerBase
         GetBooksQuery query = new GetBooksQuery(_context , _mapper);
         var result = query.Handle();
         return Ok(result);
-    }
+    } 
 
     [HttpGet("{id}")]
-    public IActionResult GetById(string id){
+    public IActionResult GetById(int id){
         GetBookByIdQuery query = new GetBookByIdQuery(_context , _mapper);
-        var result = query.Handle(id);
+        GetBookByIdQueryValidator validator = new GetBookByIdQueryValidator();
+        query.BookId = id;
+        validator.ValidateAndThrow(query);
+        var result = query.Handle();
         return Ok(result);
     }
 
@@ -39,43 +44,23 @@ public class BookController : ControllerBase
     public IActionResult AddBook([FromBody] CreateBookViewModal book)
     {
         CreateBookQuery query = new CreateBookQuery(_context , _mapper);
-        try
-        {
-            query.Handle(book);
-            return Ok("Kitap Basariyla eklendi!");
-        }catch(Exception ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        query.Handle(book);
+        return Ok("Kitap Basariyla eklendi!");
     }
 
     //Update
     [HttpPut("{id}")]
     public IActionResult UpdateBook(string id , [FromBody] UpdateBookViewModal book){
         UpdateBookQuery query = new UpdateBookQuery(_context);
-        try
-        {
-            query.Handle(id,book);
-            return Ok("Kitap Basariyla guncellendi!");
-        }
-        catch(Exception ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        query.Handle(id,book);
+        return Ok("Kitap Basariyla guncellendi!");
     }
 
     //Delete
     [HttpDelete("{id}")]
     public IActionResult DeleteBook(string id){
         DeleteBookQuery query = new DeleteBookQuery(_context);
-        try
-        {
-            query.Handle(id);
-            return Ok("Kitap basariyla silindi!");
-        }
-        catch(Exception ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        query.Handle(id);
+        return Ok("Kitap basariyla silindi!");
     }
 }

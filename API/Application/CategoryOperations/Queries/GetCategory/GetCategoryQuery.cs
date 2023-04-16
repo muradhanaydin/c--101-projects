@@ -6,9 +6,9 @@ namespace api.Application.CategoryOperations.Queries
 {
     public class GetCategoryQuery
     {
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
-        public GetCategoryQuery(BookStoreDbContext _context , IMapper _mapper)
+        public GetCategoryQuery(IBookStoreDbContext _context , IMapper _mapper)
         {
             this._mapper = _mapper;
             this._context = _context;

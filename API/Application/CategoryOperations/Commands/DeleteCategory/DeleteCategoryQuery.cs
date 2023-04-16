@@ -6,8 +6,8 @@ namespace api.Application.CategoryOperations.Commands.DeleteCategory
     public class DeleteCategoryQuery
     {
         public int CategoryId { get; set; }
-        private readonly BookStoreDbContext _context;
-        public DeleteCategoryQuery(BookStoreDbContext _context)
+        private readonly IBookStoreDbContext _context;
+        public DeleteCategoryQuery(IBookStoreDbContext _context)
         {
             this._context = _context;
         }
@@ -16,7 +16,7 @@ namespace api.Application.CategoryOperations.Commands.DeleteCategory
         {
             var category = _context.Category.SingleOrDefault(x => x.Id == CategoryId);
             if(category is null){
-                throw new Exception($"{CategoryId} 'sine sahip kategori bulunamadi!");
+                throw new Exception($"{CategoryId} id'sine sahip kategori bulunamadi!");
             }
             _context.Category.Remove(category);
             _context.SaveChanges();

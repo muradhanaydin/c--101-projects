@@ -8,9 +8,9 @@ namespace api.Application.BookOperations.Queries.GetBook
 {
     public class GetBooksQuery
     {
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
-        public GetBooksQuery(BookStoreDbContext _context , IMapper _mapper)
+        public GetBooksQuery(IBookStoreDbContext _context , IMapper _mapper)
         {
             this._context = _context;
             this._mapper = _mapper;

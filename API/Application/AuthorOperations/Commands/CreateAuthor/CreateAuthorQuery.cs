@@ -7,10 +7,10 @@ namespace api.Application.AuthorOperations.Commdans.CreateAuthor
     public class CreateAuthorQuery
     {
         public CreateAuthorModel Model;
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
 
-        public CreateAuthorQuery(BookStoreDbContext _context, IMapper _mapper)
+        public CreateAuthorQuery(IBookStoreDbContext _context, IMapper _mapper)
         {
             this._context = _context;
             this._mapper = _mapper;

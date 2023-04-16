@@ -6,12 +6,10 @@ namespace api.Application.AuthorOperations.Commdans.DeleteAuthor
     public class DeleteAuthorQuery
     {
         public int AuthorId { get; set; }
-        private readonly BookStoreDbContext _context;
-        private readonly IMapper _mapper;
-        public DeleteAuthorQuery(BookStoreDbContext _context , IMapper _mapper)
+        private readonly IBookStoreDbContext _context;
+        public DeleteAuthorQuery(IBookStoreDbContext _context)
         {
             this._context = _context;
-            this._mapper = _mapper;
         }
         public void Handle()
         {
@@ -23,7 +21,7 @@ namespace api.Application.AuthorOperations.Commdans.DeleteAuthor
             var books = _context.Books.Where(x => x.AuthorId == AuthorId).ToList().Count;
             if(books != 0)
             {
-                throw new Exception($"{author.Id} id'li yazarin aktif olarak {books} adet kitaplari bulunmakta. Once kitaplari silmelisiniz!");
+                throw new Exception($"{author.Id} id'li yazarin aktif olarak kitaplari bulunmakta. Once kitaplari silmelisiniz!");
             }
 
             _context.Author.Remove(author);

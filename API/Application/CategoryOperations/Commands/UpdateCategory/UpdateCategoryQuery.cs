@@ -6,8 +6,8 @@ namespace api.Application.CategoryOperations.Commands.UpdateCategory
     {
         public int CategoryId { get; set; }
         public UpdateCategoryModel Model { get; set; }
-        private readonly BookStoreDbContext _context;
-        public UpdateCategoryQuery(BookStoreDbContext _context)
+        private readonly IBookStoreDbContext _context;
+        public UpdateCategoryQuery(IBookStoreDbContext _context)
         {
             this._context = _context;
         }
@@ -16,7 +16,7 @@ namespace api.Application.CategoryOperations.Commands.UpdateCategory
             var category = _context.Category.SingleOrDefault(x => x.Id == CategoryId);
             if(category is null)
             {
-                throw new Exception($"{CategoryId} 'sine sahip kategori bulunamadi!");
+                throw new Exception($"{CategoryId} id'sine sahip kategori bulunamadi!");
             }
             if(_context.Category.Any(x => x.Name.ToLower() == Model.Name.ToLower() && x.Id != CategoryId))
             {
@@ -30,6 +30,6 @@ namespace api.Application.CategoryOperations.Commands.UpdateCategory
     public class UpdateCategoryModel
     {
         public string Name { get; set; }
-        public bool IsActive { get; set; } = true;
+        public bool IsActive { get; set; }
     }
 }

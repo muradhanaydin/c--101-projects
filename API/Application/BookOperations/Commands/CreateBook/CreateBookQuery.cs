@@ -6,39 +6,30 @@ namespace api.Application.BookOperations.Commands.CreateBook
 {
     public class CreateBookQuery
     {
-        private readonly BookStoreDbContext _context;
+        public CreateBookQueryModel Model;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
-        public CreateBookQuery(BookStoreDbContext _context , IMapper _mapper)
+        public CreateBookQuery(IBookStoreDbContext _context , IMapper _mapper)
         {
             this._context = _context;
             this._mapper = _mapper;
         }
-        public void Handle(CreateBookViewModal modal)
+        public void Handle()
         {
-            CreateBokQueryValidator validater = new CreateBokQueryValidator();
-            var result = validater.Validate(modal);
-            if(result.IsValid)
-            {
-                var book = _context.Books.SingleOrDefault(b => b.Title == modal.Title);
-                if(book is not null){
-                    throw new InvalidOperationException($"{book.Title} isimli kitap zaten kayitli! Kitap ID: {book.Id}");
-                }
-                book = _mapper.Map<Book>(modal);
-                _context.Books.Add(book);
-                _context.SaveChanges();
-            }else{
-                string errorMessage = "";
-                result.Errors.ForEach(error => {
-                    errorMessage += error.ErrorMessage+"\n";
-                });
-                throw new InvalidOperationException(errorMessage);
+            var book = _context.Books.SingleOrDefault(b => b.Title == Model.Title);
+            if(book is not null){
+                throw new InvalidOperationException($"{book.Title} isimli kitap zaten kayitli!");
             }
+            book = _mapper.Map<Book>(Model);
+            _context.Books.Add(book);
+            _context.SaveChanges();
         }
     }
-    public class CreateBookViewModal
-    {
-        public string? Title { get; set; }
-        public int Category { get; set; }
+    public class CreateBookQueryModel
+    {     
+        public string Title { get; set; }
+        public int CategoryId { get; set; }
+        public int AuthorId { get; set; }
         public int PageCount { get; set; }
         public string? Publisher { get; set; }
         public DateTime PublishDate { get; set; }

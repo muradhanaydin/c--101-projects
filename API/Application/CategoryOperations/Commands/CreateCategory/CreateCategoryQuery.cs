@@ -6,8 +6,8 @@ namespace api.Application.CategoryOperations.Commands.CreateCategory
     public class CreateCategoryQuery
     {
         public CreateCategoryModel Model { get; set; }
-        private readonly BookStoreDbContext _context;
-        public CreateCategoryQuery(BookStoreDbContext _context)
+        private readonly IBookStoreDbContext _context;
+        public CreateCategoryQuery(IBookStoreDbContext _context)
         {
             this._context = _context;
         }

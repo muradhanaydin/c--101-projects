@@ -2,11 +2,11 @@ using FluentValidation;
 
 namespace api.Application.CategoryOperations.Commands.CreateCategory
 {
-    public class CreateCategoryQueryValidator : AbstractValidator<CreateCategoryQuery>
+    public class CreateCategoryQueryValidator : AbstractValidator<CreateCategoryModel>
     {
         public CreateCategoryQueryValidator()
         {
-            RuleFor(query => query.Model.Name).NotEmpty().MinimumLength(4);
+            RuleFor(model => model.Name).NotEmpty().MinimumLength(4);
         }
     }
 }

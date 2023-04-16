@@ -7,9 +7,9 @@ namespace api.Application.AuthorOperations.Commdans.UpdateAuthor
     {
         public int AuthorId { get; set; }
         public UpdateAuthorModel Model { get; set; }
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
-        public UpdateAuthorQuery(BookStoreDbContext _context, IMapper _mapper)
+        public UpdateAuthorQuery(IBookStoreDbContext _context, IMapper _mapper)
         {
             this._context = _context;
             this._mapper = _mapper;

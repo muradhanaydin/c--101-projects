@@ -3,12 +3,12 @@ using AutoMapper;
 
 namespace api.Application.AuthorOperations.Queries.GetAuthorById
 {
-    public class GetAuthorById
+    public class GetAuthorByIdQuery
     {
         public int AuthorId { get; set; }
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
-        public GetAuthorById(BookStoreDbContext _context, IMapper _mapper)
+        public GetAuthorByIdQuery(IBookStoreDbContext _context, IMapper _mapper)
         {
             this._context = _context;
             this._mapper = _mapper;

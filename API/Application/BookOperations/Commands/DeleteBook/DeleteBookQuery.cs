@@ -4,19 +4,20 @@ namespace api.Application.BookOperations.Commands.DeleteBook
 {
     public class DeleteBookQuery
     {
-        private BookStoreDbContext _context;
-        public DeleteBookQuery(BookStoreDbContext _context)
+        public int BookId { get; set; }
+        private IBookStoreDbContext _context;
+        public DeleteBookQuery(IBookStoreDbContext _context)
         {
             this._context = _context;
         }
-        public void Handle(string id)
+        public void Handle()
         {
-            var book = _context.Books.Where(b => b.Id == int.Parse(id)).SingleOrDefault();
+            var book = _context.Books.Where(b => b.Id == BookId).SingleOrDefault();
             if(book is null)
             {
-                throw new InvalidOperationException($"{id}'li kitap sistemde bulunamadi!");
+                throw new Exception($"{BookId} id'sine sahip bir kitap sistemde bulunamadi!");
             }
-            _context.Remove(book);
+            _context.Books.Remove(book);
             _context.SaveChanges();
         }
     }
